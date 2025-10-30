@@ -2,7 +2,7 @@
 
 A cinematic Movies & TV Shows discovery app powered by The Movie Database (TMDb) API.
 
-## Features For Streamora Web App
+## Features For Streamora 
 
 - 🔍 Search for movies using TMDb API
 - 📽️ View detailed movie information (poster, director, runtime, cast, genres)
@@ -35,7 +35,7 @@ Inspired by Netflix's cinematic design:
 - Smooth animations and hover effects
 - Modern Poppins typography
 
-## Features For Streamora Web App
+## Features For Streamora 
 
 - Same modular architecture
 - MVC pattern with Views
