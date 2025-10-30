@@ -1,0 +1,18 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+[dev]
+  command = "npm run start"      # runs Parcel dev server
+  port = 8888                     # Netlify Dev URL
+  targetPort = 1234               # Parcel dev server port
+  publish = "."                  # serve project root during dev
+  functions = "netlify/functions"
+
+

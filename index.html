@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,600,700"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="src/img/streamora-favicon.svg" type="image/svg+xml" />
+
+    <link rel="stylesheet" href="src/sass/main.scss" />
+    <script type="module" defer src="src/js/controller.js"></script>
+
+    <title>Streamora // Discover Movies & TV Shows</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1 class="header__logo-text">STREAMORA</h1>
+        <form class="search">
+          <input
+            type="text"
+            class="search__field"
+            placeholder="Search movies..."
+          />
+          <button class="btn search__btn">
+            <svg class="search__icon">
+              <use href="src/img/icons.svg#icon-search"></use>
+            </svg>
+            <span>Search</span>
+          </button>
+        </form>
+
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <button class="nav__btn nav__btn--add-movie">
+                <svg class="nav__icon">
+                  <use href="src/img/icons.svg#icon-edit"></use>
+                </svg>
+                <span>Add movie</span>
+              </button>
+            </li>
+            <li class="nav__item">
+              <button class="nav__btn nav__btn--bookmarks">
+                <svg class="nav__icon">
+                  <use href="src/img/icons.svg#icon-bookmark"></use>
+                </svg>
+                <span>Bookmarks</span>
+              </button>
+              <div class="bookmarks">
+                <ul class="bookmarks__list">
+                  <div class="message">
+                    <div>
+                      <svg>
+                        <use href="src/img/icons.svg#icon-smile"></use>
+                      </svg>
+                    </div>
+                    <p>
+                      No bookmarks yet. Find a nice movie and bookmark it :)
+                    </p>
+                  </div>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="search-results">
+        <ul class="results"></ul>
+
+        <div class="pagination"></div>
+
+        <p class="copyright">&copy; Streamora 2024. Powered by TMDb API.</p>
+      </div>
+
+      <div class="movie">
+        <div class="message">
+          <div>
+            <svg>
+              <use href="src/img/icons.svg#icon-smile"></use>
+            </svg>
+          </div>
+          <p>Start by searching for a movie. Have fun!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay hidden"></div>
+    <div class="add-movie-window hidden">
+      <button class="btn--close-modal">&times;</button>
+      <form class="upload">
+        <div class="upload__column">
+          <h3 class="upload__heading">Movie data</h3>
+          <label>Title</label>
+          <input required name="title" type="text" />
+          <label>Overview</label>
+          <input required name="overview" type="text" />
+          <label>Poster URL</label>
+          <input name="posterUrl" type="text" />
+          <label>Director</label>
+          <input required name="director" type="text" />
+          <label>Release Date</label>
+          <input required name="releaseDate" type="date" />
+          <label>Runtime (minutes)</label>
+          <input required name="runtime" type="number" />
+          <label>Genres (comma-separated)</label>
+          <input
+            name="genres"
+            type="text"
+            placeholder="Action, Drama, Comedy"
+          />
+        </div>
+
+        <div class="upload__column">
+          <h3 class="upload__heading">Cast</h3>
+          <label>Cast Member 1</label>
+          <input type="text" name="cast-1" placeholder="Name,Character" />
+          <label>Cast Member 2</label>
+          <input type="text" name="cast-2" placeholder="Name,Character" />
+          <label>Cast Member 3</label>
+          <input type="text" name="cast-3" placeholder="Name,Character" />
+          <label>Cast Member 4</label>
+          <input type="text" name="cast-4" placeholder="Name,Character" />
+          <label>Cast Member 5</label>
+          <input type="text" name="cast-5" placeholder="Name,Character" />
+        </div>
+
+        <button class="btn upload__btn">
+          <svg>
+            <use href="src/img/icons.svg#icon-upload-cloud"></use>
+          </svg>
+          <span>Upload</span>
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+// Netflix-inspired Cinematic Theme
+$color-primary: #E50914; // Netflix red
+$color-secondary: #FFD700; // Gold highlight
+$color-background: #121212; // Dark theater vibe
+$color-text: #E5E5E5; // Light text
+
+$color-grad-1: #E50914;
+$color-grad-2: #FF6B6B;
+
+$color-grey-light-1: #1a1a1a; // Light background
+$color-grey-light-2: #2a2a2a; // Light lines
+$color-grey-light-3: #888; // Light text (placeholder)
+$color-grey-dark-1: #E5E5E5; // Normal text
+$color-grey-dark-2: #AAA; // Lighter text
+
+$gradient: linear-gradient(to right bottom, $color-grad-1, $color-grad-2);
+
+$bp-large: 78.15em; // 1250px
+$bp-medium: 61.25em; // 980px
+$bp-small: 37.5em; // 600px
+$bp-smallest: 31.25em; // 500px
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+
+  @media only screen and (max-width: $bp-medium) {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: $color-grey-dark-1;
+  background: linear-gradient(to bottom, #000000, $color-background);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 2 * 4vw);
+}
+
+.container {
+  max-width: 120rem;
+  min-height: 117rem;
+  margin: 4vw auto;
+  background: linear-gradient(to bottom, $color-background, #000000);
+  border-radius: 9px;
+  overflow: hidden;
+  box-shadow: 0 2rem 6rem 0.5rem rgba(#000, 0.8);
+  border: 1px solid rgba($color-primary, 0.2);
+
+  display: grid;
+  grid-template-rows: 10rem minmax(100rem, auto);
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas:
+    'head head'
+    'list movie';
+
+  @media only screen and (max-width: $bp-large) {
+    max-width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  // Stack layout on tablets and phones
+  @media only screen and (max-width: $bp-medium) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      'head'
+      'list'
+      'movie';
+  }
+}
