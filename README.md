@@ -35,7 +35,7 @@ Inspired by Netflix's cinematic design:
 - Smooth animations and hover effects
 - Modern Poppins typography
 
-## Features Retained from Forkify
+## Features 
 
 - Same modular architecture
 - MVC pattern with Views
