@@ -1,17 +1,17 @@
 // Netflix-inspired Cinematic Theme
-$color-primary: #E50914; // Netflix red
-$color-secondary: #FFD700; // Gold highlight
+$color-primary: #e50914; // Netflix red
+$color-secondary: #ffd700; // Gold highlight
 $color-background: #121212; // Dark theater vibe
-$color-text: #E5E5E5; // Light text
+$color-text: #c6c6c6; // Light text
 
-$color-grad-1: #E50914;
-$color-grad-2: #FF6B6B;
+$color-grad-1: #e50914;
+$color-grad-2: #ff6b6b;
 
 $color-grey-light-1: #1a1a1a; // Light background
 $color-grey-light-2: #2a2a2a; // Light lines
 $color-grey-light-3: #888; // Light text (placeholder)
-$color-grey-dark-1: #E5E5E5; // Normal text
-$color-grey-dark-2: #AAA; // Lighter text
+$color-grey-dark-1: #e5e5e5; // Normal text
+$color-grey-dark-2: #aaa; // Lighter text
 
 $gradient: linear-gradient(to right bottom, $color-grad-1, $color-grad-2);
 
