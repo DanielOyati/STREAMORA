@@ -1,17 +1,28 @@
 export async function handler(event) {
-  const apiKey = process.env.TMDB_API_KEY;
+  // const apiKey = process.env.TMDB_API_KEY;
+  const apiKey = process.env.VITE_TMDB_API_KEY;
   if (!apiKey) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ message: 'Server misconfiguration: TMDB_API_KEY is missing' })
+      body: JSON.stringify({
+        message: 'Server misconfiguration: TMDB_API_KEY is missing',
+      }),
     };
   }
 
   try {
-    const url = new URL(event.rawUrl || `https://example.com${event.path}${event.rawQuery ? '?' + event.rawQuery : ''}`);
+    const url = new URL(
+      event.rawUrl ||
+        `https://example.com${event.path}${
+          event.rawQuery ? '?' + event.rawQuery : ''
+        }`
+    );
     const path = url.searchParams.get('path');
     if (!path) {
-      return { statusCode: 400, body: JSON.stringify({ message: 'Missing path parameter' }) };
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ message: 'Missing path parameter' }),
+      };
     }
 
     // Build TMDb URL
@@ -31,11 +42,9 @@ export async function handler(event) {
     return {
       statusCode: res.status,
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     };
   } catch (err) {
     return { statusCode: 500, body: JSON.stringify({ message: err.message }) };
   }
 }
-
-
