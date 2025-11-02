@@ -48,7 +48,12 @@ body {
   background: linear-gradient(to bottom, #000000, $color-background);
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: calc(100vh - 2 * 4vw);
+  background-attachment: fixed;
+  min-height: 100vh;
+
+  @media only screen and (max-width: $bp-medium) {
+    min-height: 100vh;
+  }
 }
 
 .container {
@@ -62,7 +67,7 @@ body {
   border: 1px solid rgba($color-primary, 0.2);
 
   display: grid;
-  grid-template-rows: 10rem minmax(100rem, auto);
+  grid-template-rows: auto minmax(100rem, auto);
   grid-template-columns: 1fr 2fr;
   grid-template-areas:
     'head head'
@@ -78,9 +83,14 @@ body {
   @media only screen and (max-width: $bp-medium) {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
+    min-height: auto;
     grid-template-areas:
       'head'
       'list'
       'movie';
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    min-height: 100vh;
   }
 }

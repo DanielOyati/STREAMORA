@@ -5,6 +5,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100rem;
+  max-width: 95vw;
+  max-height: 90vh;
+  overflow-y: auto;
   background: linear-gradient(to bottom, $color-grey-light-1, $color-background);
   border-radius: 9px;
   border: 2px solid $color-primary;
@@ -13,6 +16,29 @@
   box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.8);
   z-index: 1000;
   transition: all 0.5s;
+
+  @media only screen and (max-width: $bp-medium) {
+    width: 90vw;
+    padding: 4rem 4rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    width: 95vw;
+    padding: 3rem 2rem;
+    max-height: 95vh;
+    top: 50%;
+    border-radius: 5px;
+  }
+
+  @media only screen and (max-width: $bp-smallest) {
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+    top: 0;
+    transform: translate(-50%, 0);
+    padding: 2rem 1.5rem;
+  }
 
   .btn--close-modal {
     font-family: inherit;
@@ -25,6 +51,26 @@
     border: none;
     background: none;
     transition: all 0.3s;
+    z-index: 1001;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 3rem;
+      top: 0.3rem;
+      right: 1rem;
+    }
+
+    @media only screen and (max-width: $bp-smallest) {
+      font-size: 2.5rem;
+      top: 0.5rem;
+      right: 1rem;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      width: 3.5rem;
+      height: 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
     &:hover {
       color: $color-primary;
@@ -55,16 +101,42 @@
   grid-template-columns: 1fr 1fr;
   gap: 4rem 6rem;
 
+  @media only screen and (max-width: $bp-medium) {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    gap: 2rem;
+  }
+
   &__column {
     display: grid;
     grid-template-columns: 1fr 2.8fr;
     align-items: center;
     gap: 1.5rem;
 
+    @media only screen and (max-width: $bp-small) {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      
+      & label {
+        margin-bottom: 0.5rem;
+      }
+    }
+
     & label {
       font-size: 1.5rem;
       font-weight: 600;
       color: inherit;
+
+      @media only screen and (max-width: $bp-small) {
+        font-size: 1.3rem;
+      }
+
+      @media only screen and (max-width: $bp-smallest) {
+        font-size: 1.2rem;
+      }
     }
 
     & input {
@@ -73,6 +145,17 @@
       border: 1px solid #ddd;
       border-radius: 0.5rem;
       transition: all 0.2s;
+      width: 100%;
+
+      @media only screen and (max-width: $bp-small) {
+        font-size: 1.4rem;
+        padding: 0.7rem 0.9rem;
+      }
+
+      @media only screen and (max-width: $bp-smallest) {
+        font-size: 1.3rem;
+        padding: 0.6rem 0.8rem;
+      }
 
       &::placeholder {
         color: $color-grey-light-3;
@@ -90,6 +173,12 @@
       grid-column: 1 / span 2;
       justify-self: center;
       margin-top: 1rem;
+
+      @media only screen and (max-width: $bp-small) {
+        grid-column: 1;
+        width: 100%;
+        max-width: 100%;
+      }
     }
   }
 
@@ -99,10 +188,31 @@
     text-transform: uppercase;
     margin-bottom: 1rem;
     grid-column: 1/-1;
+
+    @media only screen and (max-width: $bp-medium) {
+      font-size: 2rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media only screen and (max-width: $bp-smallest) {
+      font-size: 1.6rem;
+    }
   }
 
   &__btn {
     grid-column: 1 / -1;
     justify-self: center;
+    width: 100%;
+    max-width: 30rem;
+
+    @media only screen and (max-width: $bp-small) {
+      width: 100%;
+      max-width: 100%;
+      padding: 1.2rem 2rem;
+    }
   }
 }

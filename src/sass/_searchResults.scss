@@ -2,16 +2,38 @@
   padding: 3rem 0;
   display: flex;
   flex-direction: column;
+
+  @media only screen and (max-width: $bp-small) {
+    padding: 2rem 0;
+  }
 }
 
 .results {
   list-style: none;
   margin-bottom: 2rem;
+
+  @media only screen and (max-width: $bp-small) {
+    margin-bottom: 1.5rem;
+  }
 }
 
 .pagination {
   margin-top: auto;
   padding: 0 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 0 2rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    padding: 0 1.5rem;
+    flex-direction: column;
+  }
 
   &::after {
     content: '';
@@ -21,10 +43,14 @@
 
   &__btn {
     &--prev {
-      float: left;
+      @media only screen and (min-width: $bp-small + 0.0625em) {
+        float: left;
+      }
     }
     &--next {
-      float: right;
+      @media only screen and (min-width: $bp-small + 0.0625em) {
+        float: right;
+      }
     }
   }
 }
@@ -34,6 +60,19 @@
   font-size: 1.2rem;
   padding: 0 3.5rem;
   margin-top: 4rem;
+  text-align: center;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 0 2rem;
+    font-size: 1.1rem;
+    margin-top: 3rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    padding: 0 1.5rem;
+    font-size: 1rem;
+    margin-top: 2rem;
+  }
 
   .twitter-link:link,
   .twitter-link:visited {

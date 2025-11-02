@@ -5,6 +5,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.5rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    padding: 1rem;
+  }
 
   &__logo-text {
     margin-left: 4rem;
@@ -15,10 +28,32 @@
     text-transform: uppercase;
     text-shadow: 0 0 1rem $color-primary, 0 0 2rem $color-primary;
     transition: all 0.3s ease;
+    white-space: nowrap;
+    
+    @media only screen and (max-width: $bp-medium) {
+      margin-left: 0;
+      font-size: 2.5rem;
+      letter-spacing: 0.3rem;
+      text-align: center;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 2rem;
+      letter-spacing: 0.2rem;
+    }
+
+    @media only screen and (max-width: $bp-smallest) {
+      font-size: 1.6rem;
+      letter-spacing: 0.1rem;
+    }
     
     &:hover {
       text-shadow: 0 0 1.5rem $color-secondary, 0 0 3rem $color-secondary;
       transform: scale(1.05);
+
+      @media only screen and (max-width: $bp-medium) {
+        transform: none;
+      }
     }
   }
 }
@@ -30,10 +65,29 @@
   align-items: center;
   padding-left: 3rem;
   transition: all 0.3s;
+  flex: 1;
+  max-width: 50rem;
+  margin: 0 auto;
+
+  @media only screen and (max-width: $bp-medium) {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 2rem;
+    margin: 0;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    padding-left: 1.5rem;
+    border-radius: 5rem;
+  }
 
   &:focus-within {
     transform: translateY(-2px);
     box-shadow: 0 0.7rem 3rem rgba($color-grey-dark-1, 0.08);
+
+    @media only screen and (max-width: $bp-small) {
+      transform: none;
+    }
   }
 
   &__field {
@@ -42,7 +96,17 @@
     font-family: inherit;
     color: $color-text;
     font-size: 1.7rem;
-    width: 30rem;
+    width: 100%;
+    min-width: 0;
+    flex: 1;
+
+    @media only screen and (max-width: $bp-medium) {
+      font-size: 1.5rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.4rem;
+    }
 
     &:focus {
       outline: none;
@@ -51,16 +115,30 @@
     &::placeholder {
       color: $color-grey-light-3;
     }
-
-    @media only screen and (max-width: $bp-medium) {
-      width: auto;
-      color: $color-text;
-    }
   }
 
   &__btn {
     font-weight: 600;
     font-family: inherit;
+    padding: 1.5rem 2rem;
+    white-space: nowrap;
+
+    @media only screen and (max-width: $bp-small) {
+      padding: 1.2rem 1.5rem;
+      font-size: 1.3rem;
+    }
+
+    span {
+      @media only screen and (max-width: $bp-smallest) {
+        display: none;
+      }
+    }
+
+    svg {
+      @media only screen and (max-width: $bp-smallest) {
+        margin: 0;
+      }
+    }
   }
 }
 
@@ -68,10 +146,26 @@
   align-self: stretch;
   margin-right: 2.5rem;
 
+  @media only screen and (max-width: $bp-medium) {
+    align-self: auto;
+    margin-right: 0;
+    width: 100%;
+  }
+
   &__list {
     list-style: none;
     display: flex;
     height: 100%;
+    gap: 0.5rem;
+
+    @media only screen and (max-width: $bp-medium) {
+      justify-content: center;
+      height: auto;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      gap: 0.25rem;
+    }
   }
 
   &__item {
@@ -90,9 +184,21 @@
     cursor: pointer;
     padding: 0 1.5rem;
     transition: all 0.3s;
+    border-radius: 0.5rem;
 
     display: flex;
     align-items: center;
+
+    @media only screen and (max-width: $bp-medium) {
+      height: auto;
+      padding: 1rem 1.2rem;
+      font-size: 1.2rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      padding: 0.8rem 1rem;
+      font-size: 1.1rem;
+    }
 
     svg {
       height: 2.4rem;
@@ -101,6 +207,12 @@
       margin-right: 0.7rem;
       transform: translateY(-1px);
       transition: all 0.3s;
+
+      @media only screen and (max-width: $bp-small) {
+        height: 2rem;
+        width: 2rem;
+        margin-right: 0.5rem;
+      }
     }
 
     &:hover svg {
@@ -115,6 +227,12 @@
     &:hover {
       background-color: $color-grey-light-2;
     }
+
+    span {
+      @media only screen and (max-width: $bp-smallest) {
+        display: none;
+      }
+    }
   }
 }
 
@@ -124,6 +242,9 @@
   right: -2.5rem;
   z-index: 10;
   width: 40rem;
+  max-width: calc(100vw - 2rem);
+  max-height: 50vh;
+  overflow-y: auto;
   background: linear-gradient(to bottom, $color-grey-light-1, $color-background);
   box-shadow: 0 0.8rem 5rem 2rem rgba(#000, 0.5);
   border: 1px solid $color-primary;
@@ -131,6 +252,19 @@
   visibility: hidden;
   opacity: 0;
   transition: all 0.5s 0.2s;
+
+  @media only screen and (max-width: $bp-medium) {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90vw;
+    max-width: 40rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    width: 95vw;
+    max-height: 60vh;
+  }
 
   &__list {
     list-style: none;
@@ -145,6 +279,10 @@
     height: 100%;
     transition: all 0.3s;
 
+    @media only screen and (max-width: $bp-small) {
+      padding: 0 2rem;
+    }
+
     &:hover {
       background-color: $color-grey-light-2;
     }
@@ -154,5 +292,14 @@
   .nav__btn--bookmarks:hover + & {
     visibility: visible;
     opacity: 1;
+  }
+
+  // On touch devices, show on click/tap
+  @media (hover: none) and (pointer: coarse) {
+    .nav__btn--bookmarks:active + &,
+    .nav__btn--bookmarks:focus + & {
+      visibility: visible;
+      opacity: 1;
+    }
   }
 }
